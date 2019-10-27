@@ -101,7 +101,30 @@ composer require symfony/asset
 
 Part #2
 
-// 
+// install Symfony's Webpack Encore
+```bash
+composer require webpack-encore
+```
+
+// install some dependencies. sass-loader and node-sass 
+```bash
+yarn add sass-loader node-sass --dev
+```
+
+// compile our Javascript and CSS into assets to be used by Symfony
+```bash
+yarn run encore dev --watch
+```
+
+// In order to make use of Bootstrap we need to install jQuery
+```bash
+yarn add jquery --dev
+```
+
+//  install bootstrap-sass
+```bash
+yarn add bootstrap-sass --dev
+```
 
 // todo
 * DateTimeInterface
