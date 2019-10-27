@@ -94,6 +94,15 @@ php bin/console make:controller
 php bin/console cache:clear
 ```
 
+// add aasets 
+```bash
+composer require symfony/asset
+```
+
+Part #2
+
+// 
+
 // todo
 * DateTimeInterface
 * many-to-many relation
