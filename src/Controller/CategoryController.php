@@ -120,4 +120,30 @@ class CategoryController extends AbstractController
             'products' => $products
         ]);
     }
+
+    /**
+     * @Route("/delete-entry/{entryId}", name="admin_delete_entry")
+     *
+     * @param $entryId
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function deleteEntryAction($entryId)
+    {
+        $product = $this->productRepository->findOneById($entryId);
+        $category = $this->categoryRepository->findOneByUsername($this->getUser()->getUserName());
+
+        if (!$product || $category !== $product->getCategory()) {
+            $this->addFlash('error', 'Unable to remove entry!');
+
+            return $this->redirectToRoute('admin_entries');
+        }
+
+        $this->entityManager->remove($product);
+        $this->entityManager->flush();
+
+        $this->addFlash('success', 'Entry was deleted!');
+
+        return $this->redirectToRoute('admin_entries');
+    }
 }
