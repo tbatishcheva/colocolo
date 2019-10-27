@@ -45,8 +45,8 @@ class ProductController extends AbstractController
         }
 
         return $this->render('product/entries.html.twig', [
-            'products' => $this->productRepository->getAllPosts($page, self::POST_LIMIT),
-            'totalProducts' => $this->productRepository->getPostCount(),
+            'products' => $this->productRepository->getAllProducts($page, self::POST_LIMIT),
+            'totalProducts' => $this->productRepository->getProductsCount(),
             'page' => $page,
             'entryLimit' => self::POST_LIMIT
         ]);
