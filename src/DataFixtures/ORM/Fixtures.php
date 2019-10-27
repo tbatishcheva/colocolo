@@ -13,7 +13,9 @@ class Fixtures extends Fixture
     {
         $categoryToy = new Category();
         $categoryToy
-            ->setName('Toys');
+            ->setName('Toys')
+            ->setUsername('auth0-username')
+        ;
 
         $manager->persist($categoryToy);
 
