@@ -47,4 +47,38 @@ class ProductRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /**
+     * @param int $page
+     * @param int $limit
+     *
+     * @return array
+     */
+    public function getAllProducts($page = 1, $limit = 5)
+    {
+        $entityManager = $this->getEntityManager();
+        $queryBuilder = $entityManager->createQueryBuilder();
+        $queryBuilder
+            ->select('products')
+            ->from('App:Product', 'products')
+            ->orderBy('products.id', 'DESC')
+            ->setFirstResult($limit * ($page - 1))
+            ->setMaxResults($limit);
+
+        return $queryBuilder->getQuery()->getResult();
+    }
+
+    /**
+     * @return array
+     */
+    public function getProductsCount()
+    {
+        $entityManager = $this->getEntityManager();
+        $queryBuilder = $entityManager->createQueryBuilder();
+        $queryBuilder
+            ->select('count(products)')
+            ->from('App:Product', 'products');
+
+        return $queryBuilder->getQuery()->getSingleScalarResult();
+    }
 }

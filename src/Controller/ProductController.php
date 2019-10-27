@@ -5,9 +5,12 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class ProductController extends AbstractController
 {
+    /** @var integer */
+    const POST_LIMIT = 5;
 
     /** @var EntityManagerInterface */
     private $entityManager;
@@ -32,10 +35,20 @@ class ProductController extends AbstractController
      * @Route("/", name="homepage")
      * @Route("/entries", name="entries")
      */
-    public function entriesAction()
+    public function entriesAction(Request $request)
     {
+
+        $page = 1;
+
+        if ($request->get('page')) {
+            $page = $request->get('page');
+        }
+
         return $this->render('product/entries.html.twig', [
-            'products' => $this->productRepository->findAll()
+            'products' => $this->productRepository->getAllPosts($page, self::POST_LIMIT),
+            'totalProducts' => $this->productRepository->getPostCount(),
+            'page' => $page,
+            'entryLimit' => self::POST_LIMIT
         ]);
     }
 }
