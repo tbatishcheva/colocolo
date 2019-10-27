@@ -20,7 +20,14 @@ composer require --dev maker-bundle
 ```
 
 // replace info in .env
+```bash
 DATABASE_URL=mysql://admin:admin@127.0.0.1:3306/colocolo
+```
+// tip to create a DB : `.helpers/run-mysql-docker.sh`
+
+// If needed, create a database with the value of your database name
+```bash
+php bin/console doctrine:database:create
 ```
 
 // Create new ProductController
@@ -48,3 +55,23 @@ php bin/console make:entity
 php bin/console make:entity
 ```
 
+// Doctrine can create the tables we've specified
+```bash
+php bin/console doctrine:schema:update --force
+```
+
+// install doctrine-fixtures
+```bash
+composer require --dev doctrine/doctrine-fixtures-bundle
+```
+
+// run the fixtures
+```bash
+php bin/console doctrine:fixtures:load
+```
+
+// todo
+* DateTimeInterface
+* many-to-many relation
+* Migrations
+* 
