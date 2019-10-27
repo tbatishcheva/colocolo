@@ -73,10 +73,25 @@ php bin/console doctrine:fixtures:load
 // In order to install HWIOAuth Bundle, which uses a virtual package php-http/client-implementation, we need to install several third-party libraries
 ```bash
 composer require hwi/oauth-bundle php-http/guzzle6-adapter php-http/httplug-bundle
-composer require hwi/oauth-bundle php-http/guzzle6-adapter:1.1 php-http/httplug-bundle
-composer require hwi/oauth-bundle
-composer php-http/guzzle6-adapter
-composer php-http/httplug-bundle
+```
+
+or add next text to composer.json:
+```json
+    "require": {
+        "hwi/oauth-bundle": "^0.6.3",
+        "php-http/guzzle6-adapter": "^1.1",
+        "php-http/httplug-bundle": "^1.16",
+}
+```
+
+// Create new CategoryController
+```bash
+php bin/console make:controller
+```
+
+// clear the cache in your Symfony
+```bash
+php bin/console cache:clear
 ```
 
 // todo
