@@ -18,7 +18,9 @@
                     <p class="blog-post-meta">
                         {#                        {{ product.getUpdatedAt|date('F j, Y') }} by#}
                         {% if product.category %}
-                            {{ product.category.name }}
+                            <a href="{{ path('author', {'name': blogPost.author.username|url_encode }) }}">
+                                {{ product.category.name }}
+                            </a>
                         {% else %}
                             Unknown category
                         {% endif %}

@@ -69,4 +69,21 @@ class ProductController extends AbstractController
             'blogPost' => $product
         ));
     }
+
+    /**
+     * @Route("/category/{name}", name="category")
+     */
+    public function categoryAction($name)
+    {
+        $category = $this->categoryRepository->findOneByUsername($name);
+
+        if (!$category) {
+            $this->addFlash('error', 'Unable to find category!');
+            return $this->redirectToRoute('entries');
+        }
+
+        return $this->render('product/category.html.twig', [
+            'category' => $category
+        ]);
+    }
 }
