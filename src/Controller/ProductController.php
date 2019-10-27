@@ -51,4 +51,22 @@ class ProductController extends AbstractController
             'entryLimit' => self::POST_LIMIT
         ]);
     }
+
+    /**
+     * @Route("/entry/{slug}", name="entry")
+     */
+    public function entryAction($slug)
+    {
+        $product = $this->productRepository->findOneBySlug($slug);
+
+        if (!$product) {
+            $this->addFlash('error', 'Unable to find entry!');
+
+            return $this->redirectToRoute('entries');
+        }
+
+        return $this->render('blog/entry.html.twig', array(
+            'blogPost' => $product
+        ));
+    }
 }

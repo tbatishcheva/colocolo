@@ -8,19 +8,22 @@
             {% for product in products %}
                 {% set paragraphs = product.description|split('</p>') %}
                 {% set firstParagraph = paragraphs|first ~ '</p>' %}
+                <a href="{{ path('entry', {'slug': product.slug}) }}">Read more</a>
                 <div class="blog-post">
                     <h2 class="blog-post-title">
-                        {{ product.name }}
+                        <a href="{{ path('entry', {'slug': blogPost.slug}) }}">
+                            {{ product.name }}
+                        </a>
                     </h2>
                     <p class="blog-post-meta">
-{#                        {{ product.getUpdatedAt|date('F j, Y') }} by#}
+                        {#                        {{ product.getUpdatedAt|date('F j, Y') }} by#}
                         {% if product.category %}
                             {{ product.category.name }}
                         {% else %}
                             Unknown category
                         {% endif %}
                     </p>
-                    {{ firstParagraph|raw }}<br />
+                    {{ firstParagraph|raw }}<br/>
                 </div>
             {% else %}
                 <div class="alert alert-danger" role="alert">
