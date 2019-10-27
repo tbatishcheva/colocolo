@@ -11,6 +11,9 @@ use App\Entity\Category;
 use App\Form\CategoryFormType;
 use App\Form\EntryFormType;
 
+/**
+ * @Route("/admin")
+ */
 class CategoryController extends AbstractController
 {
 
@@ -33,7 +36,7 @@ class CategoryController extends AbstractController
         $this->categoryRepository = $entityManager->getRepository('App:Category');
     }
     /**
-     * @Route("/admin/category/create", name="category_create")
+     * @Route("/category/create", name="category_create")
      */
     public function createCategoryAction(Request $request)
     {
@@ -94,6 +97,27 @@ class CategoryController extends AbstractController
 
         return $this->render('admin/entry_form.html.twig', [
             'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/", name="admin_index")
+     * @Route("/entries", name="admin_entries")
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function entriesAction()
+    {
+        $category = $this->categoryRepository->findOneByUsername($this->getUser()->getUserName());
+
+        $products = [];
+
+        if ($category) {
+            $products = $this->productRepository->findByCategory($category);
+        }
+
+        return $this->render('admin/entries.html.twig', [
+            'products' => $products
         ]);
     }
 }
