@@ -2,14 +2,14 @@
 {% block title %}App:product:category{% endblock %}
 {% block body %}
     <div class="container">
-        <div class="blog-header">
-            <h1 class="blog-title">category</h1>
-            <p class="lead blog-description">A brief look into the category.</p>
+        <div class="product-header">
+            <h1 class="product-title">category</h1>
+            <p class="lead product-description">A brief look into the category.</p>
         </div>
         <div class="row">
-            <div class="col-sm-8 blog-main">
-                <div class="blog-post">
-                    <h2 class="blog-post-title">{{ category.name|raw }}</h2>
+            <div class="col-sm-8 product-main">
+                <div class="product-post">
+                    <h2 class="product-post-title">{{ category.name|raw }}</h2>
                     <p>Title: {{ category.title|raw }}</p>
                     <p>Company: {{ category.company|raw }}</p>
                     <p>Short Biography: {{ category.shortBio|raw }}</p>

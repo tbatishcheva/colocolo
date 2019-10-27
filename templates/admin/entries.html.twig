@@ -2,9 +2,9 @@
 {% block title %}{% endblock %}
 {% block body %}
     <div class="container">
-        <div class="blog-header">
-            <h1 class="blog-title">Author admin</h1>
-            <p class="lead blog-description"></p>
+        <div class="product-header">
+            <h1 class="product-title">Author admin</h1>
+            <p class="lead product-description"></p>
         </div>
         <div class="row">
             <div class="col-md-12 col-lg-12 col-xl-12">
@@ -20,7 +20,7 @@
             <div class="col-md-12 col-lg-12 col-xl-12">
                 <a type="button" href="{{ path('admin_create_entry') }}" class="btn btn-primary pull-right">Add Entry</a>
             </div>
-            <div class="col-sm-12 blog-main">
+            <div class="col-sm-12 product-main">
                 <table class="table table-striped">
                     <thead>
                     <th>Title</th>
@@ -35,7 +35,7 @@
                             <td></td>
                             {#                            <td>{{ product.updatedAt|date('F j, Y') }}</td>#}
                             <td></td>
-                            <td><a class="btn btn-danger" href="{{ path('admin_delete_entry', {'entryId': blogPost.id}) }}">Delete</a></td>
+                            <td><a class="btn btn-danger" href="{{ path('admin_delete_entry', {'entryId': product.id}) }}">Delete</a></td>
                         </tr>
                     {% else %}
                         <tr>

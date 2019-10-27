@@ -77,10 +77,12 @@ composer require hwi/oauth-bundle php-http/guzzle6-adapter php-http/httplug-bund
 
 or add next text to composer.json:
 ```json
-    "require": {
+{
+  "require": {
         "hwi/oauth-bundle": "^0.6.3",
         "php-http/guzzle6-adapter": "^1.1",
-        "php-http/httplug-bundle": "^1.16",
+        "php-http/httplug-bundle": "^1.16"
+  }
 }
 ```
 

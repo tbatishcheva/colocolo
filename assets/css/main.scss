@@ -35,31 +35,31 @@ h6, .h6 {
  * Masthead for nav
  */
 
-.blog-masthead {
+.product-masthead {
   background-color: #428bca;
   -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
   box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
 }
 
 /* Nav links */
-.blog-nav-item {
+.product-nav-item {
   position: relative;
   display: inline-block;
   padding: 10px;
   font-weight: 500;
   color: #cdddeb;
 }
-.blog-nav-item:hover,
-.blog-nav-item:focus {
+.product-nav-item:hover,
+.product-nav-item:focus {
   color: #fff;
   text-decoration: none;
 }
 
 /* Active state gets a caret at the bottom */
-.blog-nav .active {
+.product-nav .active {
   color: #fff;
 }
-.blog-nav .active:after {
+.product-nav .active:after {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -74,20 +74,20 @@ h6, .h6 {
 }
 
 /*
- * Blog name and description
+ * product name and description
  */
 
-.blog-header {
+.product-header {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-.blog-title {
+.product-title {
   margin-top: 30px;
   margin-bottom: 0;
   font-size: 60px;
   font-weight: normal;
 }
-.blog-description {
+.product-description {
   font-size: 20px;
   color: #999;
 }
@@ -97,7 +97,7 @@ h6, .h6 {
  * Main column and sidebar layout
  */
 
-.blog-main {
+.product-main {
   font-size: 18px;
   line-height: 1.5;
 }
@@ -131,16 +131,16 @@ h6, .h6 {
 }
 
 /*
- * Blog posts
+ * products
  */
-.blog-post {
+.product-post {
   margin-bottom: 60px;
 }
-.blog-post-title {
+.product-post-title {
   margin-bottom: 5px;
   font-size: 40px;
 }
-.blog-post-meta {
+.product-post-meta {
   margin-bottom: 20px;
   color: #999;
 }
@@ -149,13 +149,13 @@ h6, .h6 {
 /*
  * Footer
  */
-.blog-footer {
+.product-footer {
   padding: 40px 0;
   color: #999;
   text-align: center;
   background-color: #f9f9f9;
   border-top: 1px solid #e5e5e5;
 }
-.blog-footer p:last-child {
+.product-footer p:last-child {
   margin-bottom: 0;
 }

@@ -65,8 +65,8 @@ class ProductController extends AbstractController
             return $this->redirectToRoute('entries');
         }
 
-        return $this->render('blog/entry.html.twig', array(
-            'blogPost' => $product
+        return $this->render('product/entry.html.twig', array(
+            'product' => $product
         ));
     }
 
