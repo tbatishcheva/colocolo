@@ -130,7 +130,6 @@ yarn add bootstrap-sass --dev
 * DateTimeInterface
 * many-to-many relation
 * Migrations
-* 
 
 help
 * `composer clearcache`

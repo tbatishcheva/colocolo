@@ -11,14 +11,15 @@
                 <a href="{{ path('entry', {'slug': product.slug}) }}">Read more</a>
                 <div class="blog-post">
                     <h2 class="blog-post-title">
-                        <a href="{{ path('entry', {'slug': blogPost.slug}) }}">
+                        <a href="{{ path('entry', {'slug': product.slug}) }}">
                             {{ product.name }}
-                        </a>
+{#                        </a>#}
                     </h2>
                     <p class="blog-post-meta">
                         {#                        {{ product.getUpdatedAt|date('F j, Y') }} by#}
                         {% if product.category %}
-                            <a href="{{ path('author', {'name': blogPost.author.username|url_encode }) }}">
+{#                            <a href="{{ path('category', {'name': product.category.username|url_encode }) }}">#}
+                            <a href="{{ path('category', {'name': product.category.name|url_encode }) }}">
                                 {{ product.category.name }}
                             </a>
                         {% else %}

@@ -30,7 +30,8 @@ class Fixtures extends Fixture
             ->setName('Raccoon')
 //            ->setDateAdded(DateTime::createFromFormat('j-M-Y', '15-Feb-2009'))
             ->setDescription('Lorem Ipsum is simply dummy text of the printing and typesetting industry.')
-            ->setCategory($categoryToy);
+            ->setCategory($categoryToy)
+            ->setSlug('first-post');
         $manager->persist($productRaccoon);
 
 //        $productBear = new Product();
