@@ -9,16 +9,16 @@
         <div class="row">
             <div class="col-sm-8 product-main">
                 <div class="product-post">
-                    <h2 class="product-post-title">{{ product.title }}</h2>
+{#                    <h2 class="product-post-title">{{ product.title }}</h2>#}
                     <p class="product-post-meta">
-                        {{ product.updatedAt|date('F j, Y') }} by <a href="{{ path('author', {'name': product.author.username|url_encode }) }}">
-                            {{ product.author.name }}
+{#                        {{ product.updatedAt|date('F j, Y') }} by <a href="{{ path('author', {'name': product.author.username|url_encode }) }}">#}
+                            {{ product.category.name }}
                         </a>
                     </p>
                     <h3>Description:</h3>
                     <p>{{ product.description|raw }}</p>
                     <h3>Body:</h3>
-                    <p>{{ product.body|raw }}</p>
+{#                    <p>{{ product.body|raw }}</p>#}
                 </div>
             </div>
         </div>
