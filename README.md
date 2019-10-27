@@ -70,6 +70,21 @@ composer require --dev doctrine/doctrine-fixtures-bundle
 php bin/console doctrine:fixtures:load
 ```
 
+// In order to install HWIOAuth Bundle, install several third-party libraries 
+```bash
+composer require hwi/oauth-bundle
+composer require php-http/guzzle6-adapter
+composer require php-http/httplug-bundle
+```
+
+or add next text to `composer.json`
+```bash
+"hwi/oauth-bundle": "^0.6.3",
+"php-http/guzzle6-adapter": "^1.1",
+"php-http/httplug-bundle": "^1.16",
+```
+
+
 // todo
 * DateTimeInterface
 * many-to-many relation
