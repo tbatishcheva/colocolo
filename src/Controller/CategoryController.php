@@ -2,12 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Product;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Category;
 use App\Form\CategoryFormType;
+use App\Form\EntryFormType;
 
 class CategoryController extends AbstractController
 {
@@ -59,6 +61,38 @@ class CategoryController extends AbstractController
         }
 
         return $this->render('admin/create_category.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/create-entry", name="admin_create_entry")
+     *
+     * @param Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function createEntryAction(Request $request)
+    {
+        $product = new Product();
+
+        $category = $this->categoryRepository->findOneByUsername($this->getUser()->getUserName());
+        $product->setCategory($category);
+
+        $form = $this->createForm(EntryFormType::class, $product);
+        $form->handleRequest($request);
+
+        // Check is valid
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->entityManager->persist($product);
+            $this->entityManager->flush($product);
+
+            $this->addFlash('success', 'Congratulations! Your Category is created');
+
+            return $this->redirectToRoute('admin_entries');
+        }
+
+        return $this->render('admin/entry_form.html.twig', [
             'form' => $form->createView()
         ]);
     }
